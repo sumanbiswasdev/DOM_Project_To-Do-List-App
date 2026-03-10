@@ -21,7 +21,7 @@ function addTask() {
 
     let deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
-    deleteBtn.className = "bg-red-500 text-white px-2 py-1 rounded";
+    deleteBtn.className = "bg-red-500 text-white px-2 py-1 rounded cursor-pointer";
 
     deleteBtn.onclick =  function () {
     li.remove()

@@ -1,30 +1,27 @@
 function addTask() {
-    let input = document.getElementById("taskInput");
-    let taskText = input.value.trim();
+    const input = document.getElementById("taskInput")
+    const taskText = input.value.trim()
 
-    if (taskText === "") {
-    alert("Please add task");
-    return;
+    if(taskText === "" ){
+        alert("Please add your task...")
     }
 
-    let li = document.createElement("li");
+    const li = document.createElement("li")
+    li.className = "flex justify-between items-center bg-gray-100 p-2 rounded"
 
-    li.className = "flex justify-between items-center bg-gray-100 p-2 rounded";
+    const checkbox = document.createElement("input")
+    checkbox.type = "checkbox"
 
-    let checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
+    const span = document.createElement("span")
+    span.textContent = "taskText"
+    span.className = "flex-1 ml-2"
 
-    let span = document.createElement("span")
-    span.textContent = taskText
-    span.className = "flex-1 ml-2";
+    const deleteBtn = document.createElement("button")
+    deleteBtn.textContent = "Delete"
+    deleteBtn.className = "bg-red-500 text-white px-2 py-1 rounded"
 
-
-    let deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Delete";
-    deleteBtn.className = "bg-red-500 text-white px-2 py-1 rounded cursor-pointer";
-
-    deleteBtn.onclick =  function () {
-    li.remove()
+    deleteBtn.onclick = function () {
+        li.remove()
     }
 
     li.appendChild(checkbox)
@@ -33,22 +30,20 @@ function addTask() {
 
     document.getElementById("taskList").appendChild(li)
 
-    input.value = "";
 
-};
+    input.value = ""
 
-function deleteChecked() {
 
-let tasks = document.querySelectorAll("#taskList li");
-
-tasks.forEach(function(task){
-
-let checkbox = task.querySelector("input");
-
-if (checkbox.checked) {
-task.remove();
 }
 
-});
 
+function deleteChecked() {
+    const tasks = document.querySelectorAll("#taskList li")
+    tasks.forEach(function(task){
+
+    const checkbox = task.querySelector("input")
+        if(checkbox.checked){
+            task.remove()
+        }
+    })
 }
